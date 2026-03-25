@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agisti si suka bullying</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at 20% 30%, #bdcbedc0, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(172, 73, 157, 0.662), transparent 40%),
+                #401a7d81;
+    color: #5d3303;
+    scroll-behavior: smooth;
+}
+
+/* NAVBAR */
+nav {
+    position: fixed;
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    background: rgba(156, 56, 215, 0.53);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+nav a {
+    margin: 0 15px;
+    color: #000;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #fff;
+}
+
+/* HERO */
+.hero {
+    position: relative;
+}
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+}
+
+.typing-text {
+    font-size: 80px;
+    color: #8f470b;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid #8f470b;
+    
+    width: 0;
+    animation: typing 4s steps(25) forwards, blink 0.7s infinite;
+}
+
+/* animasi mengetik */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/* kursor berkedip */
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+.name {
+    position: absolute;
+    bottom: 50px;
+    left: 80px;
+    color: #000;
+}
+
+/* SECTION */
+section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* BOX */
+.box {
+    max-width: 800px;
+    text-align: center;
+}
+
+ul {
+    text-align: left;
+    color: #000000;
+}
+
+/* FOTO */
+.image-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center; /* ubah ke flex-start / flex-end kalau mau geser */
+}
+
+.image-container img {
+    width: 300px;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.image-container img:hover {
+    transform: scale(1.05);
+}
+
+/* ANIMASI SCROLL */
+.hidden {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+<a href="#first">first</a>
+<a href="#second">second</a>
+<a href="#third">third</a>
+<a href="#contact">contact</a>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero">
+<h1 class="typing text">WELCOME TO MY PAGE</h1>
+<p class="name">
+pokoknya wajib liat sampe akhir. <br>
+rules number 1: jangan di scroll, harus klik bagian navbar menu atas.
+</p>
+</section>
+
+<!-- FIRST -->
+<section id="first" class="hidden">
+<div class="box">
+<h1>gaada apa-apa disini</h1>
+<h1>kepoo yaa!!!!</h1>
+<h1>coba klik tulisan second</h1>
+<h1>jangan di scroll, soalnya gabisa</h1>
+</div>
+</section>
+
+<!-- SECOND -->
+<section id="second" class="hidden">
+<div class="box">
+<h1>CIEE MAKIN KEPOO</h1>
+<ul>
+<p>coba di next tapi inget rules number 1 </p>
+<p>fiks pasti makin kepo 
+    jadi enakk gini punya fans yang penasaran</p>
+</ul>
+</div>
+</section>
+
+<!-- THIRD -->
+<section id="third" class="hidden">
+<div class="box">
+<h1>third</h1>
+<p>SPECIAL GIFT PICT FOR YOU</p>
+
+<div class="image-container">
+    <img src="estetik.jpeg" alt="foto">
+</div>
+
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="hidden">
+<div class="box">
+<h1>Contact</h1>
+<p>From</p>
+<p>MANUSIA PALING BAIK HATI SUKA MENOLONG DAN TIDAK SOMBONG</p>
+</div>
+</section>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+});
+
+const hiddenElements = document.querySelectorAll(".hidden");
+hiddenElements.forEach((el) => observer.observe(el));
+</script>
+
+</body>
+</html>
